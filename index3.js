@@ -28,8 +28,6 @@
       let ex_btn = document.getElementById("export_btn");
       ex_btn.addEventListener("click",saveMessage_toFirebase);
 
-      let exit_btn = document.getElementById("exit_btn");
-      exit_btn.addEventListener("click",exit_session);
   }
 
   function keydown_handler(ev){
