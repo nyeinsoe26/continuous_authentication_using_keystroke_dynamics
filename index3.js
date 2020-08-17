@@ -18,7 +18,7 @@
   let log = console.log;
 
 
-  let key_stroke_timings = {}
+  let key_stroke_timings = {};
 
   function init(){
       let txt = document.getElementById('txt');
@@ -35,20 +35,22 @@
       //log("temp: ", temp)
       let key_press_timestamp = new Date();
       let char = ev.char || ev.charCode || ev.which;
+      //let char = ev.key;
       let s = String.fromCharCode(char);
       log("You entered: ", s," at time: ", key_press_timestamp.getTime());
-      add_value(key_stroke_timings,"key_pressed_timestamp",key_press_timestamp.getTime())
-      add_value(key_stroke_timings,"key_pressed",s)
+      add_value(key_stroke_timings,"key_pressed_timestamp",key_press_timestamp.getTime());
+      add_value(key_stroke_timings,"key_pressed",s);
   }
 
   function keyup_handler(ev){
       let key_release_time_stamp = new Date();
       let char = ev.char || ev.charCode || ev.which;
+      //let char = ev.key;
       let s = String.fromCharCode(char);
       log("You released: ", s," at time: ", key_release_time_stamp.getTime());
-      add_value(key_stroke_timings,"key_released_timestamp",key_release_time_stamp.getTime())
+      add_value(key_stroke_timings,"key_released_timestamp",key_release_time_stamp.getTime());
       add_value(key_stroke_timings,"key_released",s)
-      log(key_stroke_timings)
+      log(key_stroke_timings);
   }
 
   function add_value(obj,key,value){
@@ -63,14 +65,14 @@
     alert(key_stroke_timings);
   }
   function saveMessage_toFirebase(ev){
-    let curr_user = getInputValue("user_name")
-    let sess_num = getInputValue("session_num")
-    add_value(key_stroke_timings,"username",curr_user)
-    add_value(key_stroke_timings,"session_num",sess_num)
+    let curr_user = getInputValue("user_name");
+    let sess_num = getInputValue("session_num");
+    add_value(key_stroke_timings,"username",curr_user);
+    add_value(key_stroke_timings,"session_num",sess_num);
     var newMessageRef = messagesRef.push();
     let jsonString = JSON.stringify(key_stroke_timings);
-    newMessageRef.set(jsonString)
-    alert("Keystroke data submitted to firebase database!!")
+    newMessageRef.set(jsonString);
+    alert("Keystroke data submitted to firebase database!!");
 }
 
   function getInputValue(id){
