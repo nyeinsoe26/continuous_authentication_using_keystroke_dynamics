@@ -51,7 +51,6 @@
       add_value(key_stroke_timings,"key_released_timestamp",key_release_time_stamp.getTime())
       add_value(key_stroke_timings,"key_released",s)
       log(key_stroke_timings)
-      alert(key_stroke_timings)
   }
 
   function add_value(obj,key,value){
