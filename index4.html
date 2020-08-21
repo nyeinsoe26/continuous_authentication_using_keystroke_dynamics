@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+#user_name{
+  width: 300px;
+  height: 25px;
+}
+#session_num{
+  width: 300px;
+  height: 25px;
+}
+
+#speech_label{
+  FONT-SIZE:17px;
+  LINE-HEIGHT:20px;
+  FONT-FAMILY:Arial,Helvetica,sans-serif;
+}
+
+#speech_extract{
+  height: 280px;
+  width: 750px;
+  border-style: solid;
+  border-color: black;
+  background-color: #bbb;
+  FONT-SIZE:18px;
+  LINE-HEIGHT:21px;
+  FONT-FAMILY:Arial,Helvetica,sans-serif;
+  padding-left: 15px;
+}
+#txt{
+  height: 290px;
+  width: 750px;
+}
+
+#wuhan_flood_text_area{
+  height: 350px;
+  width: 700px;
+}
+
+#wuhan_label{
+  FONT-SIZE:17px;
+  LINE-HEIGHT:20px;
+  FONT-FAMILY:Arial,Helvetica,sans-serif;
+}
+
+#your_day_label{
+  FONT-SIZE:17px;
+  LINE-HEIGHT:20px;
+  FONT-FAMILY:Arial,Helvetica,sans-serif;
+}
+
+#your_day_text_area{
+  height: 350px;
+  width: 700px;
+}
+</style>
+
+<title>My keylogger form</title>
+<!--<script src="./index.js"></script>-->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
+<script src="./index4.js"></script>
+
+
+
+</head>
+<body>
+<form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="/html/codes/html_form_handler.cfm">
+
+<div class="column">
+  <p>
+  <label>Name: </label><br />
+  <input type="text" id="user_name" name="user_name" required><br />
+  <label>Session: </label><br />
+  <input type="text" id="session_num" name="session_num" placeholder="eg, 01"required><br />
+  <label>What type of keyboard do you use? (i.e. Mechanical/Gaming or Normal)</label><br />
+  <input type="text" id="keyboard_type" name="keyboard_type" placeholder="Put normal for laptop users"required><br />
+  </p>
+
+
+  <label id = "speech_label">1. Below is an extract of Obama's view on US's corona virus response plan. This extract <br />
+    is 134 words long.Please type it in the textarea that follows (including all the quotes "" ):
+  </label>
+  <p>
+    <div id="speech_extract">
+      “More than anything, this pandemic has fully, finally torn back the curtain on <br />
+      the idea that so many of the folks in charge know what they’re doing. A lot of <br />
+      them aren’t even pretending to be in charge,” Obama said during an online      <br />
+      commencement address to graduates of historically black colleges and universities <br/>
+      (HBCUs) on Saturday. <br />
+      “Doing what feels good, what’s convenient, what’s easy - that’s how little kids <br />
+      think,” he said in a second virtual speech on Saturday evening for graduating US <br />
+      high school students. “Unfortunately, a lot of so-called grown-ups, including some <br />
+      with fancy titles and important jobs, still think that way - which is why things are <br />
+      so screwed up. <br />
+      “I hope that instead, you decide to ground yourself in values that last, like honesty, <br />
+      hard work, responsibility, fairness, generosity, respect for others.” <br />
+    </div><br />
+    <textarea name="comments" id="txt" maxlength="5000" placeholder="Type the article here"></textarea>
+  </p>
+
+
+
+</div>
+
+<div class="column">
+  <p>
+    <label id="your_day_label">2. How is your day?</label><br />
+    <textarea name="comments" id="your_day_text_area" maxlength="5000"
+      placeholder="Describe some of the key events of your day. I would really appreciate it if you can provide about at least 100 words in your answer."required></textarea>
+  </p>
+
+  <p>
+    <label id="wuhan_label">3. Shortly after UN insisted to investigate whether COVID-19 was man-made or natural<br />
+          cause, Wuhan, the birth place of COVID-19 faced another calamity, flooding.<br/>
+          Not surprisingly, there were reports that the flooding occurs due to excessive discharge <br />
+          of water from reservoirs. Do you think China is deliberately erasing all the evidence  <br />
+          or do you think this flooding is simply a just a coincidence? What are your views on this matter? <br />
+
+    </label>
+    <textarea name="comments" id="wuhan_flood_text_area" maxlength="5000"
+      placeholder="what's the deal with wuhan's flood at such a &quot right &quot timing. I would really appreciate it if you can provide about at least 100 words in your answer." required></textarea>
+  </p>
+
+</div>
+<p>
+  <button id="export_btn" type="button">Send to database</button>
+  <button type="button"
+        onclick="window.open('', '_self', ''); window.close();">Exit</button>
+</p>
+
+
+</form>
+
+</body>
+</html>
